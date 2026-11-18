@@ -113,6 +113,7 @@ public class AdminMenu {
             }
         });
     }
+    
     /** Sub-menu data mata pelajaran. */
     private void subjectMenu() {
         InputHelper.runMenu("KELOLA MAPEL", new String[]{"Lihat Mapel", "Tambah", "Hapus"}, "Kembali", choice -> {
