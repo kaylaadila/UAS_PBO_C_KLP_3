@@ -51,3 +51,65 @@ public class AdminMenu {
             }
         });
     }
+
+    /** Mencetak tabel siswa. */
+    private void printStudents(List<Student> list) {
+        System.out.printf("%-8s %-20s %-7s %-14s %s%n", "NIS", "Nama", "Kelas", "Telepon", "Alamat");
+        InputHelper.printList(list);
+    }
+
+    /** Menampilkan daftar kelas lalu meminta admin memilih ID kelas yang valid. */
+    private String chooseClassId() {
+        InputHelper.printList(ctx.getClasses().getAll());
+        return ctx.getClasses().requireClass(InputHelper.readRequired("ID kelas: ")).getClassId();
+    }
+
+    /** Menambah siswa baru dengan NIS otomatis. */
+    private void addStudent() {
+        String nis = ctx.getStudents().generateNis();
+        String name = InputHelper.readRequired("Nama siswa: ");
+        String classId = chooseClassId();
+        String address = InputHelper.readRequired("Alamat: ");
+        String phone = InputHelper.readRequired("No. telepon: ");
+        ctx.getStudents().addStudent(new Student(nis, name, classId, address, phone));
+        System.out.println("Siswa ditambahkan dengan NIS " + nis + ".");
+    }
+
+    /** Mengedit siswa; input kosong berarti data lama dipertahankan. */
+    private void editStudent() {
+        Student s = ctx.getStudents().requireStudent(InputHelper.readRequired("NIS siswa yang diedit: "));
+        String name = InputHelper.readOrKeep("Nama", s.getName());
+        String classId = InputHelper.readOrKeep("ID kelas", s.getClassId()).toUpperCase();
+        ctx.getClasses().requireClass(classId);
+        String address = InputHelper.readOrKeep("Alamat", s.getAddress());
+        String phone = InputHelper.readOrKeep("Telepon", s.getPhone());
+        ctx.getStudents().updateStudent(s.getNis(), name, classId, address, phone);
+        System.out.println("Siswa diperbarui.");
+    }
+
+    /** Menghapus siswa setelah konfirmasi. */
+    private void deleteStudent() {
+        Student s = ctx.getStudents().requireStudent(InputHelper.readRequired("NIS siswa yang dihapus: "));
+        if (InputHelper.confirm("Yakin menghapus " + s.getName() + "?")) {
+            ctx.getStudents().deleteStudent(s.getNis());
+            System.out.println("Siswa dihapus.");
+        }
+    }
+
+    // ===================== KELAS & MAPEL =====================
+
+    /** Sub-menu data kelas. */
+    private void classMenu() {
+        InputHelper.runMenu("KELOLA KELAS", new String[]{"Lihat Kelas", "Tambah", "Hapus"}, "Kembali", choice -> {
+            if (choice == 1) {
+                InputHelper.printList(ctx.getClasses().getAll());
+            } else if (choice == 2) {
+                ctx.getClasses().addClass(InputHelper.readRequired("ID kelas (contoh X-A): "),
+                        InputHelper.readRequired("Nama kelas: "), InputHelper.readRequired("Wali kelas: "));
+                System.out.println("Kelas ditambahkan.");
+            } else {
+                ctx.getClasses().deleteClass(InputHelper.readRequired("ID kelas yang dihapus: "));
+                System.out.println("Kelas dihapus.");
+            }
+        });
+    }
