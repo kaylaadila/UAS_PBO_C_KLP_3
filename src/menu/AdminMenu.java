@@ -113,3 +113,57 @@ public class AdminMenu {
             }
         });
     }
+    /** Sub-menu data mata pelajaran. */
+    private void subjectMenu() {
+        InputHelper.runMenu("KELOLA MAPEL", new String[]{"Lihat Mapel", "Tambah", "Hapus"}, "Kembali", choice -> {
+            if (choice == 1) {
+                InputHelper.printList(ctx.getSubjects().getAll());
+            } else if (choice == 2) {
+                ctx.getSubjects().addSubject(InputHelper.readRequired("ID mapel (contoh MTK): "),
+                        InputHelper.readRequired("Nama mapel: "));
+                System.out.println("Mapel ditambahkan.");
+            } else {
+                ctx.getSubjects().deleteSubject(InputHelper.readRequired("ID mapel yang dihapus: "));
+                System.out.println("Mapel dihapus.");
+            }
+        });
+    }
+
+    // ===================== NILAI & VERIFIKASI =====================
+
+    /** Admin memasukkan nilai siswa; ulangi sampai mengetik 0. */
+    private void inputGrades() {
+        Student s = ctx.getStudents().requireStudent(InputHelper.readRequired("NIS siswa: "));
+        InputHelper.printList(ctx.getSubjects().getAll());
+        while (true) {
+            ctx.getGrades().printGrades(s.getNis());
+            String subjectId = InputHelper.readRequired("ID mapel (0 = selesai): ");
+            if (subjectId.equals("0")) return;
+            try {
+                ctx.getGrades().setGrade(s.getNis(), subjectId, InputHelper.readDouble("Nilai (0-100): ", 0, 100));
+                System.out.println("Nilai tersimpan.");
+            } catch (IllegalArgumentException e) {
+                System.out.println("[Gagal] " + e.getMessage());
+            }
+        }
+    }
+
+    /** Admin menyetujui atau menolak pendaftaran yang menunggu. */
+    private void verifyRegistrations() {
+        List<Registration> pending = ctx.getRegistrations().getPending();
+        if (pending.isEmpty()) {
+            System.out.println("Tidak ada pendaftaran menunggu.");
+            return;
+        }
+        InputHelper.printList(pending);
+        String id = InputHelper.readRequired("ID pendaftaran (0 = batal): ");
+        if (id.equals("0")) return;
+        int choice = InputHelper.readInt("1 = Setujui, 2 = Tolak, 0 = Batal: ", 0, 2);
+        if (choice == 1) {
+            System.out.println("Disetujui. NIS: " + ctx.getRegistrations().approve(id, ctx.getStudents(), ctx.getAuth()));
+        } else if (choice == 2) {
+            ctx.getRegistrations().reject(id);
+            System.out.println("Pendaftaran ditolak.");
+        }
+    }
+}
