@@ -53,4 +53,6 @@ public class Registration implements Storable {
     /** @return satu baris tabel pendaftaran */
     @Override
     public String toString() {
-      
+            return String.format("%-4s %-12s %-18s %-7s %-10s NIS: %s", regId, username, studentName, classId, status, nis.isEmpty() ? "-" : nis);
+    }
+}
