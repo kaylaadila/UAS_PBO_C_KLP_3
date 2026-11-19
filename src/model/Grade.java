@@ -34,4 +34,13 @@ public class Grade implements Storable {
         }
     }
 
-    /** @return predikat huruf (A-E) dari sebuah nilai */
+ /** @return predikat huruf (A-E) dari sebuah nilai */
+    public static String getPredicate(double value) {
+        if (value >= 85) return "A";
+        if (value >= 75) return "B";
+        if (value >= 65) return "C";
+        if (value >= 55) return "D";
+        return "E";
+    }
+}
+
