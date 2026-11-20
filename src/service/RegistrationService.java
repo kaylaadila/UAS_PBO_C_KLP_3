@@ -65,3 +65,6 @@ public class RegistrationService extends BaseService<Registration> {
     /** Admin menolak pendaftaran. */
     public void reject(String regId) {
         requirePending(regId).setStatus(Registration.STATUS_REJECTED);
+        save();
+    }
+}
