@@ -58,3 +58,11 @@ public class StudentService extends BaseService<Student> {
         int max = 1000;
         for (Student s : items) {
             try {
+                max = Math.max(max, Integer.parseInt(s.getNis()));
+            } catch (NumberFormatException ignored) {
+                // NIS non-angka dilewati
+            }
+        }
+        return String.valueOf(max + 1);
+    }
+}
