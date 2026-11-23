@@ -56,3 +56,32 @@ Pastikan struktur folder proyek tersusun seperti berikut:
 
 UASPBO_KLP3/
 │
+```text
+UASPBO_KLP3/
+│
+├── src/
+│   ├── Main.java
+│   │
+│   ├── model/
+│   ├── service/
+│   ├── menu/
+│   └── util/
+│
+├── data/
+│   ├── accounts.txt
+│   ├── students.txt
+│   ├── classes.txt
+│   ├── subjects.txt
+│   ├── registrations.txt
+│   └── grades.txt
+│
+└── README.md
+```
+
+### C. Langkah Menjalankan Program
+
+**1. Buka folder proyek**
+
+Buka terminal atau Command Prompt, kemudian arahkan direktori ke folder utama proyek `UASPBO_KLP3`.
+
+**2. Kompilasi seluruh file Java**
