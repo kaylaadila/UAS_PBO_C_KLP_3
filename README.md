@@ -27,3 +27,32 @@ Aplikasi menggunakan file berekstensi `.txt` sebagai media penyimpanan data sehi
 - Melihat daftar kelas dan mata pelajaran.
 - Mengajukan pendaftaran sebagai siswa.
 - Melihat riwayat pendaftaran.
+- Melihat nilai akademik, rata-rata, dan predikat.
+
+**Teknologi yang Digunakan**
+- Bahasa Pemrograman: Java
+- Konsep Pemrograman: Object-Oriented Programming (OOP)
+- Penyimpanan Data: File .txt
+- Antarmuka: Command Line Interface (CLI)
+- Java Development Kit: JDK 11 atau lebih baru
+
+**Konsep OOP yang Diterapkan**
+- Encapsulation: Menggunakan atribut private serta getter dan setter untuk melindungi data.
+- Inheritance: Menggunakan pewarisan antarclass, seperti Admin dan User yang mewarisi Account.
+- Polymorphism: Menggunakan method overriding pada beberapa class.
+- Abstraction: Menggunakan abstract class dan interface.
+- Generic: Menggunakan generic class pada pengelolaan data melalui BaseService.
+
+## 2. Cara Menjalankan Program
+**A. Persyaratan**
+Sebelum menjalankan program, pastikan perangkat telah memiliki:
+
+JDK versi 11 atau lebih baru.
+Terminal atau Command Prompt.
+Source code proyek Student Management System.
+
+**B. Struktur Folder**
+Pastikan struktur folder proyek tersusun seperti berikut:
+
+UASPBO_KLP3/
+│
