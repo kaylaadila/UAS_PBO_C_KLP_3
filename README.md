@@ -85,3 +85,32 @@ UASPBO_KLP3/
 Buka terminal atau Command Prompt, kemudian arahkan direktori ke folder utama proyek `UASPBO_KLP3`.
 
 **2. Kompilasi seluruh file Java**
+
+Jalankan perintah berikut:
+
+```bash
+javac -d bin src/*.java src/model/*.java src/service/*.java src/menu/*.java src/util/*.java
+```
+
+Perintah tersebut digunakan untuk mengompilasi seluruh file Java dan menyimpan hasil kompilasi ke dalam folder `bin`.
+
+**3. Jalankan program**
+
+Setelah proses kompilasi berhasil, jalankan perintah:
+
+```bash
+java -cp bin Main
+```
+
+**4. Mulai menggunakan aplikasi**
+
+Setelah program dijalankan, menu utama akan ditampilkan. Pengguna dapat memilih menu Login atau Registrasi Akun Baru sesuai kebutuhan.
+
+### D. Akun Login Demo
+
+Gunakan akun berikut untuk mencoba aplikasi:
+
+| Role | Username | Password |
+|---|---|---|
+| Admin | `admin` | `admin123` |
+| User | `siswa` | `siswa123` |
