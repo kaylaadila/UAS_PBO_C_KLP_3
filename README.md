@@ -114,3 +114,29 @@ Gunakan akun berikut untuk mencoba aplikasi:
 |---|---|---|
 | Admin | `admin` | `admin123` |
 | User | `siswa` | `siswa123` |
+
+Akun User tambahan dapat dibuat melalui menu Registrasi Akun Baru.
+Jika folder `data/` masih kosong, akun Admin akan dibuat secara otomatis oleh sistem.
+
+## 3. Pembagian Tugas Anggota Kelompok
+
+Berikut merupakan pembagian tugas setiap anggota dalam proses pengerjaan proyek Student Management System:
+
+| No. | Nama Anggota | NPM | Tugas |
+|---|---|---|---|
+| 1 | Aisya Ghaisany | 250810701100029 | Pembuat PPT |
+| 2 | Nawal Azqia | 250810701100092 | Pembuat PPT |
+| 3 | Khoirotun Hisan Br.B | 250810701100065 | Pembuat PPT |
+| 4 | Kayla Adila Farija Atika | 250810701100067 | Pembuat Code |
+| 5 | Alief Aqsha | 250810701100063 | Pembuat Code |
+| 6 | Muhammad Isyraq Akramin | 250810701100053 | Penguji Program dan Error |
+
+## 4. Penutup
+
+Student Management System dikembangkan sebagai penerapan materi Pemrograman Berorientasi Objek (PBO) menggunakan bahasa Java. Melalui proyek ini, kelompok menerapkan berbagai konsep OOP, mulai dari Encapsulation, Inheritance, Polymorphism, Abstraction, hingga Generic.
+
+Diharapkan aplikasi ini dapat membantu memahami penerapan konsep OOP dalam pengembangan sistem pengelolaan data siswa secara sederhana dan terstruktur.
+
+---
+
+**Kelompok 3 – Praktikum Pemrograman Berorientasi Objek (PBO)**
