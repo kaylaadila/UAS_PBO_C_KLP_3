@@ -37,7 +37,7 @@ public class InputHelper {
     public static String readOrKeep(String label, String old) {
         String text = readLine(label + " [" + old + "]: ");
         return text.isEmpty() ? old : text;
-
+    }
    public static int readInt(String var0, int var1, int var2) {
       while(true) {
          try {
@@ -111,7 +111,4 @@ public class InputHelper {
       }
    }
 
-   static {
-      scanner = new Scanner(System.in);
-   }
 }
